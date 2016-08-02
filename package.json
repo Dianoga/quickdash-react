@@ -6,8 +6,9 @@
     "react-scripts": "0.2.1"
   },
   "dependencies": {
-    "react": "^15.2.1",
-    "react-dom": "^15.2.1"
+    "react": "^15.3.0",
+    "react-dom": "^15.3.0",
+    "re-base": "git://github.com/qwales1/re-base.git#firebase-3.x.x"
   },
   "scripts": {
     "start": "react-scripts start",
