@@ -1,0 +1,1 @@
+export * from './climate.widget';

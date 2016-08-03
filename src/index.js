@@ -4,8 +4,7 @@ import { Router, Route, browserHistory, IndexRedirect } from 'react-router'
 
 import { auth } from './shared';
 
-import Dashboard from './dashboard/dashboard.component'
-import Login from './login/login.component'
+import { Dashboard, Login } from './components'
 
 import './scss/index.scss';
 

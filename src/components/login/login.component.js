@@ -1,8 +1,7 @@
 import React, {	Component } from 'react';
-import { withRouter } from 'react-router';
-import { firebase } from '../shared'
+import { firebase } from '../../shared'
 
-class Login extends Component {
+export class Login extends Component {
 	constructor(props, context) {
 		super(props, context);
 
@@ -28,5 +27,3 @@ class Login extends Component {
 Login.contextTypes = {
     router: React.PropTypes.object.isRequired
 };
-
-export default withRouter(Login);
