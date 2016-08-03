@@ -1,0 +1,25 @@
+// @import '../../node_modules/bootstrap/scss/variables';
+
+$gray-dark: #373a3c;
+$gray-light: #818a91;
+
+$background-color: $gray-dark;
+$good-color: #5cb85c;
+$warn-color: #e74;
+
+$building-color: rgba(255, 255, 255, 0.9);
+
+$marginSize: 1vw;
+
+$totalHeight: 150px;
+$totalWidth: 150px;
+
+$roofWidth: ($totalWidth * .75);
+$roofHeight: ($totalWidth * .25);
+
+$wallWidth: ($totalWidth * .6);
+$wallHeight: ($totalHeight * .4);
+$wallMargin: ($roofWidth - $wallWidth) / 2;
+
+$buildingHeight: $roofHeight + $wallHeight;
+$buildingMarginHeight: ($totalHeight - $buildingHeight) / 2;

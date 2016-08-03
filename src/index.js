@@ -7,7 +7,7 @@ import { auth } from './shared';
 import Dashboard from './dashboard/dashboard.component'
 import Login from './login/login.component'
 
-import './index.css';
+import './scss/index.scss';
 
 class App extends Component {
 	constructor(props) {
