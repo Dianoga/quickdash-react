@@ -1,18 +1,21 @@
-import React, {
-	Component
-} from 'react';
+import React, {	Component } from 'react';
+import { withRouter } from 'react-router';
+import { firebase } from '../shared'
 
 class Login extends Component {
-	constructor(props) {
-		super(props);
+	constructor(props, context) {
+		super(props, context);
+
+		this.context = context;
 
 		this.firebase = props.firebase;
 		this.triggerLogin = this.triggerLogin.bind(this);
-		this.handleLogin = props.handleLogin;
 	}
 
 	triggerLogin() {
-		this.firebase.authWithOAuthPopup("google", this.handleLogin);
+		firebase.authWithOAuthPopup("google", () => {
+			this.context.router.push('/dashboard');
+		});
 	}
 
 	render() {
@@ -22,4 +25,8 @@ class Login extends Component {
 	}
 }
 
-export default Login;
+Login.contextTypes = {
+    router: React.PropTypes.object.isRequired
+};
+
+export default withRouter(Login);
