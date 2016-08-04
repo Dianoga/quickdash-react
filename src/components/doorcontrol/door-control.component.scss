@@ -13,12 +13,7 @@ $doorTop: $buildingHeight + $buildingMarginHeight - $doorHeight - 1;
 $doorLeft: (($totalWidth - $wallWidth) / 2) + ($wallWidth - $doorWidth) / 2;
 
 .widget-door-control {
-	display: flex;
-	flex: 1 1 auto;
-	justify-content: center;
-	align-items: center;
-
-	transition: background-color 0.5s;
+	padding: 0;
 
 	&.warn .hole {
 		background: $warn-color;

@@ -2,6 +2,8 @@ import React, {	Component } from 'react';
 import classnames from 'classnames';
 import _ from 'lodash';
 
+import './widget.component.scss';
+
 export class Widget extends Component {
 	constructor(props) {
 		super(props);

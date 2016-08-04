@@ -1,16 +1,5 @@
 @import '../../scss/_variables';
 
-.widget-switch {
-	color: white;
-
-	flex: 1 1 auto;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-
-	transition: 0.5s background-color;
-}
-
 .bulb {
 	flex: 1 1 percentage(1/3);
 	display: flex;
