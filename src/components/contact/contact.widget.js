@@ -12,26 +12,18 @@ export class ContactWidget extends Component {
 		this.props = props;
 
 		this.allGood = this.allGood.bind(this);
+		this.badThings = this.badThings.bind(this);
 	}
 
 	allGood() {
 		return !_.find(this.props.devices, { contact: 'open' });
 	}
 
-	render() {
-		let status = <div className='status'>All closed</div>;
-		if (!this.allGood()) {
-			status = (
-				<div>
-					<div className='status'>Open</div>
-					<div className='details'>
-						<div></div>
-						<div> things open</div>
-					</div>
-				</div>
-			);
-		}
+	badThings() {
+		return _.filter(this.props.devices, { contact: 'open' });
+	}
 
+	render() {
 		const visual = (
 			<div className='window-frame'>
 				<div className='window'>
@@ -42,7 +34,14 @@ export class ContactWidget extends Component {
 		);
 
 		return (
-			<Widget class='widget-contact' allGood={this.allGood()} status={status} visual={visual} />
+			<Widget
+				class='widget-contact'
+				allGood={this.allGood()}
+				statusGood='closed'
+				statusBad='open'
+				badDevices={this.badThings()}
+				visual={visual}
+			/>
 		);
 	}
 }

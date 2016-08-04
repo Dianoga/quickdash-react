@@ -39,10 +39,10 @@ function requireAuth(next, replace, callback) {
 			}
 
 			callback();
-		})
-		.catch(err => {
-			console.error('Auth Error', err);
 		});
+		// .catch(err => {
+		// 	console.error('Auth Error', err);
+		// });
 }
 
 ReactDOM.render(

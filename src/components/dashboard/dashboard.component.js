@@ -31,7 +31,7 @@ export class Dashboard extends Component {
 		return (
 			<div className='dashboard'>
 				<ContactWidget devices={device.getContactSensors()} />
-				<SwitchWidget devices={this.state.devices} />
+				<SwitchWidget devices={device.getSwitches()} />
 				<DoorControlWidget devices={this.state.devices} />
 				<ClimateWidget devices={this.state.devices} />
 				<MotionWidget devices={this.state.devices} />
