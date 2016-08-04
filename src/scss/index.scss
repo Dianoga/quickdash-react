@@ -1,8 +1,12 @@
-@import '../../node_modules/normalize.css/normalize.css';
+@import '../../node_modules/bootstrap/scss/bootstrap-reboot';
 @import 'variables';
 @import 'fonts';
 @import 'spinner';
 @import 'widget-list';
+
+*, :after, :before {
+    box-sizing: inherit;
+}
 
 html, body {
 	background-color: $background-color;

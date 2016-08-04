@@ -23,8 +23,6 @@ class App extends Component {
 	render() {
 		return (
 			<div className='container'>
-				<h1>QuickDash React</h1>
-
 				{this.props.children}
 			</div>
 		)
@@ -43,7 +41,7 @@ function requireAuth(next, replace, callback) {
 			callback();
 		})
 		.catch(err => {
-			console.log('Horrible death');
+			console.error('Auth Error', err);
 		});
 }
 

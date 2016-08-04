@@ -1,6 +1,5 @@
-import React, {
-	Component
-} from 'react';
+import React, {	Component } from 'react';
+import { firebase, Device } from '../../shared';
 
 import {
 	ClimateWidget,
@@ -10,15 +9,32 @@ import {
 	SwitchWidget
 } from '../';
 
+import './dashboard.component.scss';
+
 export class Dashboard extends Component {
+	constructor(props) {
+		super(props);
+
+		this.state = {};
+	}
+
+	componentDidMount() {
+		firebase.bindToState('devices', {
+			context: this,
+			state: 'devices',
+		});
+	}
+
 	render() {
+		const device = new Device(this.state.devices);
+
 		return (
 			<div className='dashboard'>
-				<ContactWidget />
-				<SwitchWidget />
-				<DoorControlWidget />
-				<ClimateWidget />
-				<MotionWidget />
+				<ContactWidget devices={device.getContactSensors()} />
+				<SwitchWidget devices={this.state.devices} />
+				<DoorControlWidget devices={this.state.devices} />
+				<ClimateWidget devices={this.state.devices} />
+				<MotionWidget devices={this.state.devices} />
 			</div>
 		);
 	}

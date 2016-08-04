@@ -5,3 +5,4 @@ export * from './doorcontrol';
 export * from './login';
 export * from './motion';
 export * from './switch';
+export * from './widget';

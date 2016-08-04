@@ -1,0 +1,43 @@
+@import '../../scss/_variables';
+
+.dashboard {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.widget {
+	border: 2px solid #fff;
+	border-radius: 3px;
+	padding: 5px;
+	position: relative;
+	display: flex;
+	height: 33vh;
+
+	margin: $marginSize;
+}
+
+.widget-contact {
+	width: 37vw;
+}
+
+.widget-climate {
+	width: 37vw;
+	height: 60vh !important;
+}
+
+.widget-door-control {
+	width: 20vw;
+}
+
+.widget-motion {
+	width: 37vw;
+}
+
+.widget-switch {
+	width: 37vw;
+}
+
+.placeholder.row {
+	flex: 1 1 auto;
+	width: 100%;
+}
