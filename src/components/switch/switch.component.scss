@@ -1,0 +1,61 @@
+@import '../../scss/_variables';
+
+.widget-switch {
+	color: white;
+
+	flex: 1 1 auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	transition: 0.5s background-color;
+}
+
+.bulb {
+	flex: 1 1 percentage(1/3);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	span {
+		font-size: 100px;
+	}
+
+	.glowpoint {
+		position: absolute;
+		left: 17%;
+		top: 35%;
+		transition: 0.5s box-shadow;
+	}
+}
+
+.content {
+	flex: 2 1 percentage(2/3);
+	display: flex;
+	justify-content: center;
+
+	.status {
+		display: flex;
+		font-size: 2.5vw;
+		justify-content: center;
+	}
+
+	.details {
+		display: flex;
+		font-size: 2vw;
+	}
+}
+
+.awesome {
+	.content .status {
+		font-size: 2.5vw;
+	}
+}
+
+.awful {
+	.glowpoint {
+		box-shadow: 0 0 75px 40px yellow;
+	}
+}
+
+

@@ -1,12 +1,12 @@
 @import '../../scss/_variables';
 
-.list-contact {
-	.open {
+.list-switch {
+	.on {
 		background-color: $warn-color;
 		border-color: darken($warn-color, 20%);
 	}
 
-	.closed {
+	.off {
 		background-color: $good-color;
 		border-color: darken($good-color, 20%);
 	}

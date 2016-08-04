@@ -1,0 +1,83 @@
+@import '../../scss/_variables';
+
+$doorFrameWidth: 3px;
+
+$holeWidth: ($totalWidth * .45);
+$holeHeight: ($totalHeight * (1/3));
+$holeTop: $buildingHeight + $buildingMarginHeight - $holeHeight - 1;
+$holeLeft: (($totalWidth - $wallWidth) / 2) + ($wallWidth - $holeWidth) / 2;
+
+$doorHeight: $holeHeight - $doorFrameWidth;
+$doorWidth: $holeWidth - ($doorFrameWidth * 2);
+$doorTop: $buildingHeight + $buildingMarginHeight - $doorHeight - 1;
+$doorLeft: (($totalWidth - $wallWidth) / 2) + ($wallWidth - $doorWidth) / 2;
+
+.widget-door-control {
+	display: flex;
+	flex: 1 1 auto;
+	justify-content: center;
+	align-items: center;
+
+	transition: background-color 0.5s;
+
+	&.warn .hole {
+		background: $warn-color;
+	}
+}
+
+.walls {
+	margin: 0 $wallMargin;
+	width: $wallWidth;
+	min-height: $wallHeight;
+	background: $building-color;
+}
+
+.hole {
+	position: absolute;
+	top: $holeTop;
+	left: $holeLeft;
+
+	width: $holeWidth;
+	height: $holeHeight;
+
+	background: $background-color;
+	border: $doorFrameWidth solid white;
+	border-bottom: 0;
+}
+
+.door {
+	position: absolute;
+	top: $doorTop;
+	left: $doorLeft;
+
+	width: $doorWidth;
+	height: $doorHeight;
+
+	background: $building-color;
+	box-shadow:
+		inset 0px 0px 6px #ccc;
+
+	&.opening {
+		animation: door-opening 2s infinite linear;
+	}
+
+	&.closing {
+		animation: door-closing 2s infinite linear;
+	}
+
+	&.open, &.closing {
+		height: 0;
+	}
+}
+
+@keyframes door-opening {
+	to {
+		height: 0;
+	}
+}
+
+@keyframes door-closing {
+	to {
+		height: $doorHeight;
+	}
+}
