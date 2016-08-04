@@ -33,7 +33,7 @@ export class Dashboard extends Component {
 				{device.hasContactSensors() ? <ContactWidget devices={device.getContactSensors()} /> : null}
 				{device.hasSwitches()? <SwitchWidget devices={device.getSwitches()} /> : null}
 				{device.hasDoorControl() ? <DoorControlWidget device={device.getDoorControl()} /> : null}
-				{device.hasFloors() ? <ClimateWidget devices={this.state.devices} /> : null}
+				{device.hasFloors() ? <ClimateWidget outdoorWeather={device.getOutdoorWeather()} floors={device.getFloors()} /> : null}
 				{device.hasMotionSensors() ? <MotionWidget devices={device.getMotionSensors()} /> : null}
 			</div>
 		);
