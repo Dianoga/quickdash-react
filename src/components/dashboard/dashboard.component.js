@@ -30,11 +30,11 @@ export class Dashboard extends Component {
 
 		return (
 			<div className='dashboard'>
-				<ContactWidget devices={device.getContactSensors()} />
-				<SwitchWidget devices={device.getSwitches()} />
-				<DoorControlWidget devices={this.state.devices} />
-				<ClimateWidget devices={this.state.devices} />
-				<MotionWidget devices={device.getMotionSensors()} />
+				{device.hasContactSensors() ? <ContactWidget devices={device.getContactSensors()} /> : null}
+				{device.hasSwitches()? <SwitchWidget devices={device.getSwitches()} /> : null}
+				{device.hasDoorControl() ? <DoorControlWidget device={device.getDoorControl()} /> : null}
+				{device.hasFloors() ? <ClimateWidget devices={this.state.devices} /> : null}
+				{device.hasMotionSensors() ? <MotionWidget devices={device.getMotionSensors()} /> : null}
 			</div>
 		);
 	}
