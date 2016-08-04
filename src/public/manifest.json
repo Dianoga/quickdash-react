@@ -1,0 +1,13 @@
+{
+	"short_name": "QuickDash",
+	"name": "QuickDash",
+	"icons": [
+		{
+			"src": "images/react.svg",
+			"sizes": "any"
+		}
+	],
+	"start_url": "/index.html",
+	"display": "standalone",
+	"orientation": "landscape"
+}
