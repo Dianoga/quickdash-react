@@ -6,3 +6,4 @@ export * from './login';
 export * from './motion';
 export * from './switch';
 export * from './widget';
+export * from './widgetlist';
