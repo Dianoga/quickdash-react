@@ -55,7 +55,7 @@ class WidgetListItem extends Component {
 		});
 
 		return (
-			<div className={classes} onClick={this.props.onclick}>
+			<div className={classes} onClick={this.props.onclick.bind(null, this.props.device)}>
 				{this.props.device.name}
 			</div>
 		);
