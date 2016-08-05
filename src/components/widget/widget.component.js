@@ -10,6 +10,7 @@ export class Widget extends Component {
 
 		this.props = props;
 		this.buildStatus = this.buildStatus.bind(this);
+		this.showList = this.showList.bind(this);
 	}
 
 	buildStatus() {
@@ -31,6 +32,12 @@ export class Widget extends Component {
 		return status;
 	}
 
+	showList() {
+		if (this.props.listPath) {
+			this.context.router.push(this.props.listPath);
+		}
+	}
+
 	render() {
 		const widgetClass = classnames({
 			widget: true,
@@ -40,7 +47,7 @@ export class Widget extends Component {
 		});
 
 		return (
-			<div className={widgetClass}>
+			<div className={widgetClass} onClick={this.showList}>
 				{this.props.visual}
 
 				<div className='content'>
@@ -50,3 +57,7 @@ export class Widget extends Component {
 		);
 	}
 }
+
+Widget.contextTypes = {
+    router: React.PropTypes.object.isRequired
+};

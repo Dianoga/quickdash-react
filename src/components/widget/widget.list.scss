@@ -1,3 +1,5 @@
+@import '../../scss/_variables';
+
 .widget-list {
 	display: flex;
 	flex-wrap: wrap;
@@ -10,7 +12,8 @@
 
 		margin: 0 $marginSize $marginSize 0;
 		padding: $marginSize/2;
-		border: 1px solid;
+		border-width: 1px;
+		border-style: solid;
 		border-radius: 3px;
 		flex: 1 1 auto;
 	}

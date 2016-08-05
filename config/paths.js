@@ -50,7 +50,7 @@ if (isInCreateReactAppSource) {
   module.exports = {
     appBuild: resolveApp('build'),
     appHtml: resolveApp('index.html'),
-    appFavicon: resolveApp('favicon.ico'),
+    appFavicon: resolveApp('src/public/favicon.ico'),
     appPackageJson: resolveApp('package.json'),
     appSrc: resolveApp('src'),
     appNodeModules: resolveApp('node_modules'),

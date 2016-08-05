@@ -41,6 +41,7 @@ export class ContactWidget extends Component {
 				statusBad='open'
 				badDevices={this.badThings()}
 				visual={visual}
+				listPath='/contact'
 			/>
 		);
 	}

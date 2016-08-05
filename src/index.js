@@ -4,7 +4,7 @@ import { Router, Route, browserHistory, IndexRedirect } from 'react-router'
 
 import { auth } from './shared';
 
-import { Dashboard, Login, ContactList } from './components'
+import { Dashboard, Login, ContactList, MotionList, SwitchList } from './components'
 
 import './scss/index.scss';
 
@@ -47,9 +47,10 @@ ReactDOM.render(
 		<Route path='/' component={App}>
 			<IndexRedirect to='/dashboard' />
 			<Route path="login" component={Login} />
-			<Route path="dashboard" component={Dashboard} onEnter={requireAuth}>
-			</Route>
-				<Route path="dashboard/contact" component={ContactList} />
+			<Route path="dashboard" component={Dashboard} onEnter={requireAuth} />
+			<Route path="contact" component={ContactList} />
+			<Route path="motion" component={MotionList} />
+			<Route path="switch" component={SwitchList} />
 		</Route>
 	</Router>,
 	document.getElementById('root')

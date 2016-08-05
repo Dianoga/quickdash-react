@@ -40,6 +40,7 @@ export class MotionWidget extends Component {
 				statusBad='active'
 				badDevices={this.badThings()}
 				visual={visual}
+				listPath='/motion'
 			/>
 		);
 	}

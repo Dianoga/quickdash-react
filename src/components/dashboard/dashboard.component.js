@@ -19,10 +19,14 @@ export class Dashboard extends Component {
 	}
 
 	componentDidMount() {
-		firebase.bindToState('devices', {
+		this.deviceBind = firebase.bindToState('devices', {
 			context: this,
 			state: 'devices',
 		});
+	}
+
+	componentWillUnmount(){
+		firebase.removeBinding(this.deviceBind);
 	}
 
 	render() {

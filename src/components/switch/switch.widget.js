@@ -39,6 +39,7 @@ export class SwitchWidget extends Component {
 				statusBad='on'
 				badDevices={this.badThings()}
 				visual={visual}
+				listPath='/switch'
 			/>
 		);
 	}
