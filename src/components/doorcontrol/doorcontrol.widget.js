@@ -38,9 +38,11 @@ export class DoorControlWidget extends Component {
 			<div className={widgetClasses} onClick={this.toggle}>
 				<div className='building'>
 					<div className='roof'></div>
-					<div className='walls'></div>
-					<div className='hole'></div>
-					<div className={doorClasses}></div>
+					<div className='walls'>
+						<div className='hole'>
+							<div className={doorClasses}></div>
+						</div>
+					</div>
 				</div>
 			</div>
 		);
