@@ -3,11 +3,12 @@
 	"name": "QuickDash",
 	"icons": [
 		{
-			"src": "images/react.svg",
+			"src": "images/react.png",
 			"sizes": "any"
 		}
 	],
-	"start_url": "/index.html",
+	"start_url": "/",
 	"display": "standalone",
-	"orientation": "landscape"
+	"orientation": "landscape",
+	"background_color": "#222222"
 }

@@ -18,7 +18,7 @@ export class Widget extends Component {
 		if (this.props.badDevices.length > 0) {
 			let statusText = `${this.props.badDevices.length} things ${this.props.statusBad}`;
 			if (this.props.badDevices.length === 1) {
-				statusText = `${this.props.badDevices[0].name} is ${this.props.statusBad}`;
+				statusText = this.props.badDevices[0].name;
 			}
 
 			status = (
