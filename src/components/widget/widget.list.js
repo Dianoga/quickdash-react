@@ -54,8 +54,10 @@ class WidgetListItem extends Component {
 			[this.props.device[this.props.attr]]: true
 		});
 
+		const clickHandler = this.props.onclick ? this.props.onclick.bind(null, this.props.device) : null;
+
 		return (
-			<div className={classes} onClick={this.props.onclick.bind(null, this.props.device)}>
+			<div className={classes} onClick={clickHandler}>
 				{this.props.device.name}
 			</div>
 		);
