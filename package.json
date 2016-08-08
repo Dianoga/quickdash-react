@@ -58,7 +58,8 @@
   },
   "scripts": {
     "start": "node ./scripts/start.js",
-    "build": "node ./scripts/build.js"
+    "build": "node ./scripts/build.js",
+    "deploy": "npm run build && rsync -aP build/ root@10.0.1.7:/mnt/cache/appdata/nginx/www"
   },
   "eslintConfig": {
     "extends": "./config/eslint.js"
