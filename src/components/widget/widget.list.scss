@@ -8,7 +8,7 @@
 	margin: $marginSize 0 0 $marginSize;
 
 	.item {
-		transition: 0.5s background-color, 0.5s border-color;
+		transition: 0.5s background-color, 0.5s border-color, 0.5s opacity;
 
 		margin: 0 $marginSize $marginSize 0;
 		padding: $marginSize/2;
@@ -16,5 +16,9 @@
 		border-style: solid;
 		border-radius: 3px;
 		flex: 1 1 auto;
+
+		&.busy {
+			opacity: 0.5;
+		}
 	}
 }

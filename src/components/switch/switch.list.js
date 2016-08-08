@@ -13,12 +13,25 @@ export class SwitchList extends Component {
 	}
 
 	toggle(device, event) {
-		if (device.switch === 'on') {
-			Device.sendCommand(device, 'off');
+		let promise;
 
+		device.busy = true;
+		this.forceUpdate();
+
+		if (device.switch === 'on') {
+			promise = Device.sendCommand(device, 'off');
 		} else if (device.switch === 'off') {
-			Device.sendCommand(device, 'on');
+			promise = Device.sendCommand(device, 'on');
 		}
+
+		promise.then(() => {
+			device.busy = false;
+			this.forceUpdate();
+		})
+		.catch(() => {
+			device.busy = false;
+			this.forceUpdate();
+		});
 	}
 
 	render() {

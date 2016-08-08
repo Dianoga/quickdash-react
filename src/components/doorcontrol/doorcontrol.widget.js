@@ -13,20 +13,34 @@ export class DoorControlWidget extends Component {
 		this.toggle = this.toggle.bind(this);
 	}
 
-	toggle() {
-		if (this.props.device.door === 'open') {
-			Device.sendCommand(this.props.device, 'close');
+	toggle(event) {
+		let promise;
 
+		this.props.device.busy = true;
+		this.forceUpdate();
+
+		if (this.props.device.door === 'open') {
+			promise = Device.sendCommand(this.props.device, 'close');
 		} else if (this.props.device.door === 'closed') {
-			Device.sendCommand(this.props.device, 'open');
+			promise = Device.sendCommand(this.props.device, 'open');
 		}
+
+		promise.then(() => {
+			this.props.device.busy = false;
+			this.forceUpdate();
+		})
+		.catch(() => {
+			this.props.device.busy = false;
+			this.forceUpdate();
+		});
 	}
 
 	render() {
 		const widgetClasses = classnames({
 			widget: true,
 			'widget-door-control': true,
-			warn: this.props.device.door !== 'closed'
+			warn: this.props.device.door !== 'closed',
+			busy: this.props.device.busy
 		});
 
 		const doorClasses = classnames({

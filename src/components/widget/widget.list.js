@@ -30,7 +30,7 @@ export class WidgetList extends Component {
 		const devices = _.sortBy(device[this.props.filter](), 'name');
 
 		const deviceList = devices.map(val => {
-			return <WidgetListItem key={val.id} device={val} attr={this.props.attr} onclick={this.props.onclick}/>
+			return <WidgetListItem key={val.id} device={val} attr={this.props.attr} onclick={this.props.onclick} busy={val.busy}/>
 		});
 
 		const classes = classnames({
@@ -51,7 +51,8 @@ class WidgetListItem extends Component {
 	render() {
 		const classes = classnames({
 			item: true,
-			[this.props.device[this.props.attr]]: true
+			[this.props.device[this.props.attr]]: true,
+			busy: this.props.busy
 		});
 
 		const clickHandler = this.props.onclick ? this.props.onclick.bind(null, this.props.device) : null;

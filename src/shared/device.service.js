@@ -1,5 +1,6 @@
 import _ from 'lodash';
 import axios from 'axios';
+
 import { settings } from './';
 
 export class Device {
@@ -15,7 +16,7 @@ export class Device {
 			value: value
 		}
 
-		axios.get(settings.commandUrl, {params: data})
+		return axios.get(settings.commandUrl, {params: data})
 			.then(res => console.log(res))
 			.catch(res => console.error(res));
 	}
