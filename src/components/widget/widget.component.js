@@ -14,7 +14,7 @@ export class Widget extends Component {
 	}
 
 	buildStatus() {
-		let status = <div className='status'>All {_.capitalize(this.props.statusGood)}</div>;
+		let status = <div className='status'>Nothing {_.capitalize(this.props.statusBad)}</div>;
 		if (this.props.badDevices.length > 0) {
 			let statusText = `${this.props.badDevices.length} things ${this.props.statusBad}`;
 			if (this.props.badDevices.length === 1) {
