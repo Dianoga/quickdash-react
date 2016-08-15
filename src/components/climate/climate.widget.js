@@ -12,7 +12,7 @@ export const ClimateWidget = (props) => {
 	});
 
 	return (
-		<div className="indoorClimate">
+		<div className="widget widget-climate">
 			<div className="building">
 				<div className="roof" />
 				{ floorDom }
@@ -22,5 +22,5 @@ export const ClimateWidget = (props) => {
 };
 
 ClimateWidget.propTypes = {
-	floors: React.PropTypes.array
+	floors: React.PropTypes.array.isRequired
 };

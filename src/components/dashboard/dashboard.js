@@ -6,7 +6,8 @@ import {
 	ContactWidget,
 	DoorControlWidget,
 	MotionWidget,
-	SwitchWidget
+	SwitchWidget,
+	WeatherWidget
 } from '../';
 
 import './dashboard.scss';
@@ -37,8 +38,9 @@ export class Dashboard extends Component {
 				{device.hasContactSensors() ? <ContactWidget devices={ device.getContactSensors() } /> : null}
 				{device.hasSwitches() ? <SwitchWidget devices={ device.getSwitches() } /> : null}
 				{device.hasDoorControl() ? <DoorControlWidget device={ device.getDoorControl() } /> : null}
-				{device.hasFloors() ? <ClimateWidget outdoorWeather={ device.getOutdoorWeather() } floors={ device.getFloors() } /> : null}
 				{device.hasMotionSensors() ? <MotionWidget devices={ device.getMotionSensors() } /> : null}
+				{device.hasOutdoorWeather() ? <WeatherWidget outdoorWeather={ device.getOutdoorWeather() } /> : null}
+				{device.hasFloors() ? <ClimateWidget floors={ device.getFloors() } /> : null}
 			</div>
 		);
 	}

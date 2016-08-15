@@ -1,1 +1,1 @@
-export * from './climate.widget';
+export * from './weather.widget';

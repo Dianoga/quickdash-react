@@ -2,23 +2,11 @@
 
 $floorHeight: 50px;
 
-.widget-climate {
-	flex-direction: column;
-
+.widget-weather {
 	.building {
 		flex: 1 1 auto;
 		height: auto;
 	}
-}
-
-.outdoorClimate {
-	flex: 1 1 auto;
-	display: flex;
-	padding: 10px;
-	color: white;
-	flex-wrap: wrap;
-	justify-content: center;
-	align-items: center;
 
 	.weather-icon {
 		text-align: center;
@@ -60,37 +48,5 @@ $floorHeight: 50px;
 		content: 'mph';
 		vertical-align: super;
 		font-size: 50%;
-	}
-}
-
-.indoorClimate {
-	flex: 1 1 auto;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-.floor {
-	margin: 0 $wallMargin;
-	width: $wallWidth;
-	background: $building-color;
-	margin-top: 1px;
-	display: flex;
-	color: $gray-dark;
-
-	.temperature {
-		flex: 1 1 auto;
-		text-align: center;
-	}
-
-	.humidity {
-		flex: 1 1 auto;
-		text-align: center;
-
-		&:after {
-			content: '%';
-			vertical-align: super;
-			font-size: 50%;
-		}
 	}
 }

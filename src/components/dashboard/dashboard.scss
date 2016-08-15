@@ -3,27 +3,32 @@
 .dashboard {
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: space-between;
+	padding: 0 1%;
 }
 
 .widget-contact {
-	width: 37vw;
+	width: 39%;
 }
 
 .widget-climate {
-	width: 37vw;
-	height: 60vh !important;
+	width: 19%;
 }
 
 .widget-door-control {
-	width: 20vw;
+	width: 19%;
 }
 
 .widget-motion {
-	width: 37vw;
+	width: 39%;
 }
 
 .widget-switch {
-	width: 37vw;
+	width: 39%;
+}
+
+.widget-weather {
+	width: 39%;
 }
 
 .placeholder.row {

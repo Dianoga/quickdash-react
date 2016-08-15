@@ -1,9 +1,12 @@
 import React, {	Component } from 'react';
-import _ from 'lodash';
 
-import './weather.scss';
+import './weather.widget.scss';
 
 export class WeatherWidget extends Component {
+	static propTypes = {
+		outdoorWeather: React.PropTypes.object.isRequired
+	};
+
 	constructor(props) {
 		super(props);
 
@@ -32,58 +35,32 @@ export class WeatherWidget extends Component {
 		if (this.props.outdoorWeather.alert) {
 			alert = (
 				<div className="alert">
-					<span className="icon-alert"></span> {this.props.outdoorWeather.alert}
+					<span className="icon-alert" /> {this.props.outdoorWeather.alert}
 				</div>
 			);
 		}
 
 		const weatherIcon = `icon-${this.iconMap[this.props.outdoorWeather.weatherIcon]}`;
 
-		const floors = _.reverse(_.sortBy(this.props.floors, 'number'));
-
-		const floorDom = floors.map(floor => {
-			return <ClimateFloor key={ floor.id } floor={ floor } />;
-		});
-
 		return (
-			<div className="widget widget-climate">
-				<div className="outdoorClimate">
-					{alert}
+			<div className="widget widget-weather">
+				{alert}
 
-					<div className="weather-icon">
-						<span className={ weatherIcon }></span>
-					</div>
-
-					<div className="conditions">
-						<div className="temperature">
-							{this.props.outdoorWeather.temperature}&deg;
-						</div>
-						<div className="humidity">
-							<span className="icon-humidity"></span> {this.props.outdoorWeather.humidity}
-						</div>
-						<div className="wind">
-							<span className="icon-w-windy"></span> {this.props.outdoorWeather.wind}
-						</div>
-					</div>
+				<div className="weather-icon">
+					<span className={ weatherIcon } />
 				</div>
 
-				<div className="indoorClimate">
-					<div className="building">
-						<div className="roof"></div>
-						{floorDom}
+				<div className="conditions">
+					<div className="temperature">
+						{this.props.outdoorWeather.temperature}&deg;
+					</div>
+					<div className="humidity">
+						<span className="icon-humidity" /> {this.props.outdoorWeather.humidity}
+					</div>
+					<div className="wind">
+						<span className="icon-w-windy" /> {this.props.outdoorWeather.wind}
 					</div>
 				</div>
-			</div>
-		);
-	}
-}
-
-class ClimateFloor extends Component {
-	render() {
-		return (
-			<div className="floor">
-				{this.props.floor.temperature ? <span className="temperature">{this.props.floor.temperature}&deg;</span> : null}
-				{this.props.floor.humidity ? <span className="humidity">{this.props.floor.humidity}</span> : null}
 			</div>
 		);
 	}
