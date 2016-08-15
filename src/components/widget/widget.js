@@ -6,12 +6,13 @@ import './widget.scss';
 
 export class Widget extends Component {
 	static propTypes = {
-		statusBad: React.PropTypes.string,
-		badDevices: React.PropTypes.array,
-		listPath: React.PropTypes.string,
-		class: React.PropTypes.string,
 		allGood: React.PropTypes.bool,
-		visual: React.PropTypes.element
+		badDevices: React.PropTypes.array,
+		class: React.PropTypes.string.isRequired,
+		listPath: React.PropTypes.string,
+		status: React.PropTypes.element,
+		statusBad: React.PropTypes.string,
+		visual: React.PropTypes.element.isRequired
 	};
 
 	constructor(props) {
@@ -60,7 +61,7 @@ export class Widget extends Component {
 				{this.props.visual}
 
 				<div className="content">
-					{this.buildStatus()}
+					{this.props.status ? this.props.status : this.buildStatus()}
 				</div>
 			</div>
 		);

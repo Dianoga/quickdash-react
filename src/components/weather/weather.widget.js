@@ -1,5 +1,6 @@
 import React, {	Component } from 'react';
 
+import { Widget } from '../';
 import './weather.widget.scss';
 
 export class WeatherWidget extends Component {
@@ -30,6 +31,10 @@ export class WeatherWidget extends Component {
 		};
 	}
 
+	buildVisual() {
+		return;
+	}
+
 	render() {
 		let alert;
 		if (this.props.outdoorWeather.alert) {
@@ -41,27 +46,32 @@ export class WeatherWidget extends Component {
 		}
 
 		const weatherIcon = `icon-${this.iconMap[this.props.outdoorWeather.weatherIcon]}`;
+		const visual = (
+			<div className="weather-icon">
+				<span className={ weatherIcon } />
+			</div>
+		);
 
-		return (
-			<div className="widget widget-weather">
+		const status = (
+			<div className="conditions">
 				{alert}
-
-				<div className="weather-icon">
-					<span className={ weatherIcon } />
+				<div className="temperature">
+					{this.props.outdoorWeather.temperature}&deg;
 				</div>
-
-				<div className="conditions">
-					<div className="temperature">
-						{this.props.outdoorWeather.temperature}&deg;
-					</div>
-					<div className="humidity">
-						<span className="icon-humidity" /> {this.props.outdoorWeather.humidity}
-					</div>
-					<div className="wind">
-						<span className="icon-w-windy" /> {this.props.outdoorWeather.wind}
-					</div>
+				<div className="humidity">
+					<span className="icon-humidity" /> {this.props.outdoorWeather.humidity}
+				</div>
+				<div className="wind">
+					<span className="icon-w-windy" /> {this.props.outdoorWeather.wind}
 				</div>
 			</div>
+		);
+
+		return (
+			<Widget class="widget-weather"
+				allGood={ !alert }
+				visual={ visual }
+				status={ status } />
 		);
 	}
 }

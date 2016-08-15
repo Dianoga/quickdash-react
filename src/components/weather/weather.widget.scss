@@ -1,7 +1,5 @@
 @import '../../scss/_variables';
 
-$floorHeight: 50px;
-
 .widget-weather {
 	.building {
 		flex: 1 1 auto;
@@ -10,19 +8,23 @@ $floorHeight: 50px;
 
 	.weather-icon {
 		text-align: center;
-		font-size: 10vw;
-		margin-right: 3vw;
+		font-size: 20vh;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex: 1 1 percentage(1/3);
 	}
 
 	.conditions {
 		display: flex;
 		flex-direction: column;
-		font-size: 3vw;
+		font-size: 5vh;
 	}
 
 	.temperature {
 		text-align: center;
-		font-size: 4vw;
+		font-size: 6vh;
 	}
 
 	.humidity span,
