@@ -31,36 +31,39 @@
 			border-radius: 2vh;
 			text-align: center;
 			padding: 0 1vh;
+
+			&:after {
+				content: '°';
+			}
 		}
 	}
 
 	.conditions {
 		display: flex;
-		font-size: 5vh;
 
 		flex: 1 1 auto;
 		flex-wrap: wrap;
 	}
 
 	.alert {
-		flex: 0 0 100%;
-		text-align: center;
+		font-size: 3vh;
+		display: flex;
+		align-items: center;
+
+		.icon-alert {
+			font-size: 4vh;
+			padding-right: 1vw;
+			color: $danger-color;
+		}
 	}
 
-	.temperature:after,
-	.feelslike:after {
-		content: '°';
-	}
+	&.awful {
+		.weather-icon {
+			color: $danger-color;
+		}
 
-	.humidity:after {
-		content: '%';
-		vertical-align: super;
-		font-size: 50%;
-	}
-
-	.wind:after {
-		content: 'mph';
-		vertical-align: super;
-		font-size: 50%;
+		.temperature {
+			border-color: $danger-color;
+		}
 	}
 }

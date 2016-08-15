@@ -2,7 +2,7 @@
 	.condition {
 		flex: 1 1 auto;
 		text-align: center;
-		padding: 5px;
+		padding: 0 5px;
 	}
 
 	.name {
@@ -15,7 +15,7 @@
 	}
 
 	.unit {
-		vertical-align: super;
 		font-size: 50%;
+		line-height: 3vw;
 	}
 }

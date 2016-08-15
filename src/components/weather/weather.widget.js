@@ -31,16 +31,13 @@ export class WeatherWidget extends Component {
 		};
 	}
 
-	buildVisual() {
-		return;
-	}
-
 	render() {
 		let alert;
 		if (this.props.outdoorWeather.alert) {
 			alert = (
 				<div className="alert">
-					<span className="icon-alert" /> {this.props.outdoorWeather.alert}
+					<span className="icon-alert" />
+					<span className="alert-text">{this.props.outdoorWeather.alert}</span>
 				</div>
 			);
 		}
