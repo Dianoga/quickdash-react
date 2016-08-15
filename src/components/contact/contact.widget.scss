@@ -25,17 +25,20 @@
 }
 
 .window {
-	height: 110px;
-	width: 70px;
-	border-width: 8px;
+	position: relative;
+	height: 20vh;
+	width: 15vh;
+	border-width: 1vh;
 	border-style: solid;
 	border-color: #d8d8d8 #eeeeee;
 
 	.pane {
+		position: relative;
 		background: rgba(255, 255, 255, .3);
-		border: 3px solid #743;
+		border: 0.75vh solid #743;
 		height: 50%;
-		transition: margin-top 1s;
+		top: 0;
+		transition: top 1s;
 	}
 }
 
@@ -50,9 +53,7 @@
 		background: $warn-color;
 
 		.pane.bottom {
-			margin-top: -75%;
+			top: -45%;
 		}
 	}
 }
-
-
