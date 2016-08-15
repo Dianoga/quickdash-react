@@ -3,7 +3,7 @@ import classnames from 'classnames';
 
 import { Device } from '../../shared';
 
-import './door-control.component.scss';
+import './door-control.widget.scss';
 
 export class DoorControlWidget extends Component {
 	static propTypes = {

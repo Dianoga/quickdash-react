@@ -9,7 +9,7 @@ import {
 	SwitchWidget
 } from '../';
 
-import './dashboard.component.scss';
+import './dashboard.scss';
 
 export class Dashboard extends Component {
 	constructor(props) {

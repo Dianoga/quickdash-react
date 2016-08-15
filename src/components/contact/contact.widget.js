@@ -3,7 +3,7 @@ import _ from 'lodash';
 
 import { Widget } from '../';
 
-import './contact.component.scss';
+import './contact.widget.scss';
 
 export class ContactWidget extends Component {
 	static propTypes = {

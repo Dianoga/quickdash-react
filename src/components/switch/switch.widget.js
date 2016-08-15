@@ -3,7 +3,7 @@ import _ from 'lodash';
 
 import { Widget } from '../';
 
-import './switch.component.scss';
+import './switch.widget.scss';
 
 export class SwitchWidget extends Component {
 	static propTypes = {

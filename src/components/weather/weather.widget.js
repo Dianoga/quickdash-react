@@ -1,9 +1,9 @@
 import React, {	Component } from 'react';
 import _ from 'lodash';
 
-import './climate.component.scss';
+import './weather.scss';
 
-export class ClimateWidget extends Component {
+export class WeatherWidget extends Component {
 	constructor(props) {
 		super(props);
 

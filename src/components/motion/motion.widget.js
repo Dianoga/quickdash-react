@@ -3,7 +3,7 @@ import _ from 'lodash';
 
 import { Widget } from '../';
 
-import './motion.component.scss';
+import './motion.widget.scss';
 
 export class MotionWidget extends Component {
 	static propTypes = {
