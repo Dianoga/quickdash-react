@@ -5,7 +5,7 @@ class Settings {
 		firebase.listenTo('settings', {
 			context: this,
 			then: (data) => {
-				this._settings = data
+				this._settings = data;
 			}
 		});
 	}
@@ -15,4 +15,4 @@ class Settings {
 	}
 }
 
-export var settings = new Settings();
+export const settings = new Settings();

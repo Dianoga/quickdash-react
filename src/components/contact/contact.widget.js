@@ -6,6 +6,10 @@ import { Widget } from '../';
 import './contact.component.scss';
 
 export class ContactWidget extends Component {
+	static propTypes = {
+		devices: React.PropTypes.array.isRequired
+	};
+
 	constructor(props) {
 		super(props);
 
@@ -25,24 +29,23 @@ export class ContactWidget extends Component {
 
 	render() {
 		const visual = (
-			<div className='window-frame'>
-				<div className='window'>
-					<div className='pane top'></div>
-					<div className='pane bottom'></div>
+			<div className="window-frame">
+				<div className="window">
+					<div className="pane top" />
+					<div className="pane bottom" />
 				</div>
 			</div>
 		);
 
 		return (
 			<Widget
-				class='widget-contact'
-				allGood={this.allGood()}
-				statusGood='closed'
-				statusBad='open'
-				badDevices={this.badThings()}
-				visual={visual}
-				listPath='/contact'
-			/>
+				class="widget-contact"
+				allGood={ this.allGood() }
+				statusGood="closed"
+				statusBad="open"
+				badDevices={ this.badThings() }
+				visual={ visual }
+				listPath="/contact" />
 		);
 	}
 }

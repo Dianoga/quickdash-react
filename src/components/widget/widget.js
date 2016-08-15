@@ -2,19 +2,28 @@ import React, {	Component } from 'react';
 import classnames from 'classnames';
 import _ from 'lodash';
 
-import './widget.component.scss';
+import './widget.scss';
 
 export class Widget extends Component {
+	static propTypes = {
+		statusBad: React.PropTypes.string,
+		badDevices: React.PropTypes.array,
+		listPath: React.PropTypes.string,
+		class: React.PropTypes.string,
+		allGood: React.PropTypes.bool,
+		visual: React.PropTypes.element
+	};
+
 	constructor(props) {
 		super(props);
 
 		this.props = props;
 		this.buildStatus = this.buildStatus.bind(this);
-		this.showList = this.showList.bind(this);
+		this.handleShowList = this.handleShowList.bind(this);
 	}
 
 	buildStatus() {
-		let status = <div className='status'>Nothing {_.capitalize(this.props.statusBad)}</div>;
+		let status = <div className="status">Nothing {_.capitalize(this.props.statusBad)}</div>;
 		if (this.props.badDevices.length > 0) {
 			let statusText = `${this.props.badDevices.length} things ${this.props.statusBad}`;
 			if (this.props.badDevices.length === 1) {
@@ -23,8 +32,8 @@ export class Widget extends Component {
 
 			status = (
 				<div>
-					<div className='status'>{_.capitalize(this.props.statusBad)}</div>
-					<div className='details'>{statusText}</div>
+					<div className="status">{_.capitalize(this.props.statusBad)}</div>
+					<div className="details">{statusText}</div>
 				</div>
 			);
 		}
@@ -32,7 +41,7 @@ export class Widget extends Component {
 		return status;
 	}
 
-	showList() {
+	handleShowList() {
 		if (this.props.listPath) {
 			this.context.router.push(this.props.listPath);
 		}
@@ -47,10 +56,10 @@ export class Widget extends Component {
 		});
 
 		return (
-			<div className={widgetClass} onClick={this.showList}>
+			<div className={ widgetClass } onClick={ this.handleShowList }>
 				{this.props.visual}
 
-				<div className='content'>
+				<div className="content">
 					{this.buildStatus()}
 				</div>
 			</div>
@@ -59,5 +68,5 @@ export class Widget extends Component {
 }
 
 Widget.contextTypes = {
-    router: React.PropTypes.object.isRequired
+	router: React.PropTypes.object.isRequired
 };

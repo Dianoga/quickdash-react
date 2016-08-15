@@ -14,9 +14,9 @@ export class Device {
 			type: device.type,
 			command: command,
 			value: value
-		}
+		};
 
-		return axios.get(settings.commandUrl, {params: data})
+		return axios.get(settings.commandUrl, { params: data })
 			.then(res => console.log(res))
 			.catch(res => console.error(res));
 	}

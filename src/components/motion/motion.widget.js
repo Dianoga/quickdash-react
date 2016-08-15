@@ -6,6 +6,10 @@ import { Widget } from '../';
 import './motion.component.scss';
 
 export class MotionWidget extends Component {
+	static propTypes = {
+		devices: React.PropTypes.array
+	};
+
 	constructor(props) {
 		super(props);
 
@@ -25,23 +29,22 @@ export class MotionWidget extends Component {
 
 	render() {
 		const visual = (
-			<div className='motion-mount'>
-				<div className='motion'>
-					<div className='sensor'></div>
+			<div className="motion-mount">
+				<div className="motion">
+					<div className="sensor" />
 				</div>
 			</div>
 		);
 
 		return (
 			<Widget
-				class='widget-motion'
-				allGood={this.allGood()}
-				statusGood='inactive'
-				statusBad='active'
-				badDevices={this.badThings()}
-				visual={visual}
-				listPath='/motion'
-			/>
+				class="widget-motion"
+				allGood={ this.allGood() }
+				statusGood="inactive"
+				statusBad="active"
+				badDevices={ this.badThings() }
+				visual={ visual }
+				listPath="/motion" />
 		);
 	}
 }

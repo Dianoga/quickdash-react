@@ -21,11 +21,11 @@ export class Dashboard extends Component {
 	componentDidMount() {
 		this.deviceBind = firebase.bindToState('devices', {
 			context: this,
-			state: 'devices',
+			state: 'devices'
 		});
 	}
 
-	componentWillUnmount(){
+	componentWillUnmount() {
 		firebase.removeBinding(this.deviceBind);
 	}
 
@@ -33,12 +33,12 @@ export class Dashboard extends Component {
 		const device = new Device(this.state.devices);
 
 		return (
-			<div className='dashboard'>
-				{device.hasContactSensors() ? <ContactWidget devices={device.getContactSensors()} /> : null}
-				{device.hasSwitches()? <SwitchWidget devices={device.getSwitches()} /> : null}
-				{device.hasDoorControl() ? <DoorControlWidget device={device.getDoorControl()} /> : null}
-				{device.hasFloors() ? <ClimateWidget outdoorWeather={device.getOutdoorWeather()} floors={device.getFloors()} /> : null}
-				{device.hasMotionSensors() ? <MotionWidget devices={device.getMotionSensors()} /> : null}
+			<div className="dashboard">
+				{device.hasContactSensors() ? <ContactWidget devices={ device.getContactSensors() } /> : null}
+				{device.hasSwitches() ? <SwitchWidget devices={ device.getSwitches() } /> : null}
+				{device.hasDoorControl() ? <DoorControlWidget device={ device.getDoorControl() } /> : null}
+				{device.hasFloors() ? <ClimateWidget outdoorWeather={ device.getOutdoorWeather() } floors={ device.getFloors() } /> : null}
+				{device.hasMotionSensors() ? <MotionWidget devices={ device.getMotionSensors() } /> : null}
 			</div>
 		);
 	}

@@ -12,7 +12,7 @@ export class SwitchList extends Component {
 		this.toggle = this.toggle.bind(this);
 	}
 
-	toggle(device, event) {
+	toggle(device) {
 		let promise;
 
 		device.busy = true;
@@ -37,11 +37,10 @@ export class SwitchList extends Component {
 	render() {
 		return (
 			<WidgetList
-				class='list-switch'
-				filter='getSwitches'
-				attr='switch'
-				onclick={this.toggle}
-			/>
+				class="list-switch"
+				filter="getSwitches"
+				attr="switch"
+				onclick={ this.toggle } />
 		);
 	}
 }

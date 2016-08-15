@@ -21,13 +21,13 @@ class Auth {
 	}
 
 	isAuthenticated() {
-		return new Promise((resolve, reject) => {
-			if (typeof this.user !== 'undefined') {
-				// Auth has initialized
-				resolve(this.user);
-			} else {
+		return new Promise((resolve) => {
+			if (typeof this.user === 'undefined') {
 				// Auth hasn't initialized
 				this.notify.push(resolve);
+			} else {
+				// Auth has initialized
+				resolve(this.user);
 			}
 		});
 	}

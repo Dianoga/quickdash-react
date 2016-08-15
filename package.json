@@ -21,12 +21,9 @@
     "copy-webpack-plugin": "3.0.1",
     "cross-spawn": "4.0.0",
     "css-loader": "0.23.1",
-    "eslint": "3.1.1",
-    "eslint-loader": "1.4.1",
-    "eslint-plugin-flowtype": "2.4.0",
-    "eslint-plugin-import": "1.12.0",
-    "eslint-plugin-jsx-a11y": "2.0.1",
-    "eslint-plugin-react": "5.2.2",
+    "eslint": "3.3.0",
+    "eslint-config-smartthings": "2.13.1",
+    "eslint-plugin-react": "6.1.0",
     "extract-text-webpack-plugin": "1.0.1",
     "file-loader": "0.9.0",
     "filesize": "3.3.0",
@@ -51,7 +48,7 @@
     "bootstrap": "4.0.0-alpha.3",
     "classnames": "2.2.5",
     "lodash": "4.14.1",
-    "re-base": "git://github.com/qwales1/re-base.git#firebase-3.x.x",
+    "re-base": "git://github.com/tylermcginnis/re-base.git",
     "react": "^15.3.0",
     "react-dom": "^15.3.0",
     "react-router": "2.6.1"
@@ -59,7 +56,8 @@
   "scripts": {
     "start": "node ./scripts/start.js",
     "build": "node ./scripts/build.js",
-    "deploy": "npm run build && rsync -a build/ root@10.0.1.7:/mnt/cache/appdata/nginx/www"
+    "deploy": "npm run build && rsync -a build/ root@10.0.1.7:/mnt/cache/appdata/nginx/www",
+    "lint": "eslint -c .eslintrc ./src"
   },
   "eslintConfig": {
     "extends": "./config/eslint.js"

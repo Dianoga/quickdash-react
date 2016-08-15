@@ -4,10 +4,18 @@ import classnames from 'classnames';
 import _ from 'lodash';
 
 import { firebase, Device } from '../../shared';
+import { WidgetListItem } from './';
 
 import './widget.list.scss';
 
 export class WidgetList extends Component {
+	static propTypes = {
+		attr: React.PropTypes.string,
+		class: React.PropTypes.string,
+		filter: React.PropTypes.string,
+		onclick: React.PropTypes.function
+	};
+
 	constructor(props) {
 		super(props);
 
@@ -17,11 +25,11 @@ export class WidgetList extends Component {
 	componentDidMount() {
 		this.deviceBind = firebase.bindToState('devices', {
 			context: this,
-			state: 'devices',
+			state: 'devices'
 		});
 	}
 
-	componentWillUnmount(){
+	componentWillUnmount() {
 		firebase.removeBinding(this.deviceBind);
 	}
 
@@ -30,7 +38,7 @@ export class WidgetList extends Component {
 		const devices = _.sortBy(device[this.props.filter](), 'name');
 
 		const deviceList = devices.map(val => {
-			return <WidgetListItem key={val.id} device={val} attr={this.props.attr} onclick={this.props.onclick} busy={val.busy}/>
+			return <WidgetListItem key={ val.id } device={ val } attr={ this.props.attr } onclick={ this.props.onclick } busy={ val.busy } />;
 		});
 
 		const classes = classnames({
@@ -39,27 +47,9 @@ export class WidgetList extends Component {
 		});
 
 		return (
-			<div className={classes}>
-				<Link to='/dashboard' className='item'>Back</Link>
+			<div className={ classes }>
+				<Link to="/dashboard" className="item">Back</Link>
 				{deviceList}
-			</div>
-		);
-	}
-}
-
-class WidgetListItem extends Component {
-	render() {
-		const classes = classnames({
-			item: true,
-			[this.props.device[this.props.attr]]: true,
-			busy: this.props.busy
-		});
-
-		const clickHandler = this.props.onclick ? this.props.onclick.bind(null, this.props.device) : null;
-
-		return (
-			<div className={classes} onClick={clickHandler}>
-				{this.props.device.name}
 			</div>
 		);
 	}

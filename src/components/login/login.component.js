@@ -1,29 +1,28 @@
 import React, {	Component } from 'react';
-import { firebase } from '../../shared'
+import { firebase } from '../../shared';
 
 export class Login extends Component {
+	static propTypes = {
+		Router: React.PropTypes.object.isRequired
+	};
+
 	constructor(props, context) {
 		super(props, context);
 
 		this.context = context;
 
-		this.firebase = props.firebase;
-		this.triggerLogin = this.triggerLogin.bind(this);
+		this.handleLogin = this.handleLogin.bind(this);
 	}
 
-	triggerLogin() {
-		firebase.authWithOAuthPopup("google", () => {
+	handleLogin() {
+		firebase.authWithOAuthPopup('google', () => {
 			this.context.router.push('/dashboard');
 		});
 	}
 
 	render() {
 		return (
-			<p onClick={this.triggerLogin}>Firebase Login</p>
+			<p onClick={ this.handleLogin }>Firebase Login</p>
 		);
 	}
 }
-
-Login.contextTypes = {
-    router: React.PropTypes.object.isRequired
-};

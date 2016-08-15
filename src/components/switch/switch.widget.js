@@ -6,6 +6,10 @@ import { Widget } from '../';
 import './switch.component.scss';
 
 export class SwitchWidget extends Component {
+	static propTypes = {
+		devices: React.PropTypes.array
+	};
+
 	constructor(props) {
 		super(props);
 
@@ -25,22 +29,21 @@ export class SwitchWidget extends Component {
 
 	render() {
 		const visual = (
-			<div className='bulb'>
-				<span className='icon-lightbulb'></span>
-				<span className='glowpoint'></span>
+			<div className="bulb">
+				<span className="icon-lightbulb" />
+				<span className="glowpoint" />
 			</div>
 		);
 
 		return (
 			<Widget
-				class='widget-switch'
-				allGood={this.allGood()}
-				statusGood='off'
-				statusBad='on'
-				badDevices={this.badThings()}
-				visual={visual}
-				listPath='/switch'
-			/>
+				class="widget-switch"
+				allGood={ this.allGood() }
+				statusGood="off"
+				statusBad="on"
+				badDevices={ this.badThings() }
+				visual={ visual }
+				listPath="/switch" />
 		);
 	}
 }

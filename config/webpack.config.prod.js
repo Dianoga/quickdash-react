@@ -95,8 +95,7 @@ module.exports = {
   eslint: {
     // TODO: consider separate config for production,
     // e.g. to enable no-console and no-debugger only in prod.
-    configFile: path.join(__dirname, 'eslint.js'),
-    useEslintrc: false
+    useEslintrc: true
   },
   postcss: function() {
     return [autoprefixer];

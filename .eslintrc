@@ -1,0 +1,15 @@
+{
+    "extends": "smartthings/react",
+    "rules": {
+        "id-length": [
+            "error", {
+                "exceptions": ["_"]
+            }
+        ],
+        "no-magic-numbers": [
+            "error", {
+                "ignore": [0, 1]
+            }
+        ]
+    }
+}
