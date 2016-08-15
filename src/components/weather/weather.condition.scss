@@ -1,0 +1,21 @@
+.conditions {
+	.condition {
+		flex: 1 1 auto;
+		text-align: center;
+		padding: 5px;
+	}
+
+	.name {
+		font-size: 3vh;
+		border-bottom: 1px solid white;
+	}
+
+	.status {
+		font-size: 4vh;
+	}
+
+	.unit {
+		vertical-align: super;
+		font-size: 50%;
+	}
+}

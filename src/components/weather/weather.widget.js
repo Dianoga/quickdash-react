@@ -1,6 +1,6 @@
 import React, {	Component } from 'react';
 
-import { Widget } from '../';
+import { Widget, WeatherCondition } from '../';
 import './weather.widget.scss';
 
 export class WeatherWidget extends Component {
@@ -47,23 +47,20 @@ export class WeatherWidget extends Component {
 
 		const weatherIcon = `icon-${this.iconMap[this.props.outdoorWeather.weatherIcon]}`;
 		const visual = (
-			<div className="weather-icon">
-				<span className={ weatherIcon } />
+			<div className="current">
+				<div className="weather-icon">
+					<span className={ weatherIcon } />
+				</div>
+				<span className="temperature">{this.props.outdoorWeather.temperature}</span>
 			</div>
 		);
 
 		const status = (
 			<div className="conditions">
 				{alert}
-				<div className="temperature">
-					{this.props.outdoorWeather.temperature}&deg;
-				</div>
-				<div className="humidity">
-					<span className="icon-humidity" /> {this.props.outdoorWeather.humidity}
-				</div>
-				<div className="wind">
-					<span className="icon-w-windy" /> {this.props.outdoorWeather.wind}
-				</div>
+				<WeatherCondition name="Humidity" status={ this.props.outdoorWeather.humidity } unit="%" />
+				<WeatherCondition name="Wind Speed" status={ this.props.outdoorWeather.wind } unit="mph" />
+				<WeatherCondition name="Feels Like" status={ this.props.outdoorWeather.feelsLike } unit="°" />
 			</div>
 		);
 
