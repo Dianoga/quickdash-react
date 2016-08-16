@@ -1,0 +1,16 @@
+.widget-power .display {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	.watts {
+		flex: 1 1 auto;
+		font-size: 10vh;
+	}
+
+	.units {
+		flex: 1 1 auto;
+		text-transform: uppercase;
+	}
+}

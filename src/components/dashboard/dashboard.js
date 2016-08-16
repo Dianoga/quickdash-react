@@ -1,4 +1,5 @@
 import React, {	Component } from 'react';
+import _ from 'lodash';
 import { firebase, Device } from '../../shared';
 
 import {
@@ -6,6 +7,7 @@ import {
 	ContactWidget,
 	DoorControlWidget,
 	MotionWidget,
+	PowerWidget,
 	SwitchWidget,
 	WeatherWidget
 } from '../';
@@ -24,14 +26,21 @@ export class Dashboard extends Component {
 			context: this,
 			state: 'devices'
 		});
+
+		this.powerBind = firebase.bindToState('power', {
+			context: this,
+			state: 'power'
+		});
 	}
 
 	componentWillUnmount() {
 		firebase.removeBinding(this.deviceBind);
+		firebase.removeBinding(this.powerBind);
 	}
 
 	render() {
 		const device = new Device(this.state.devices);
+		const hasPower = this.state.power && _.size(this.state.power) > 0;
 
 		return (
 			<div className="dashboard">
@@ -41,6 +50,7 @@ export class Dashboard extends Component {
 				{device.hasMotionSensors() ? <MotionWidget devices={ device.getMotionSensors() } /> : null}
 				{device.hasOutdoorWeather() ? <WeatherWidget outdoorWeather={ device.getOutdoorWeather() } /> : null}
 				{device.hasFloors() ? <ClimateWidget floors={ device.getFloors() } /> : null}
+				{hasPower ? <PowerWidget power={ this.state.power } /> : null}
 			</div>
 		);
 	}
