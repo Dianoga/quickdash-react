@@ -20,6 +20,6 @@ export const WidgetListItem = (props) => {
 WidgetListItem.propTypes = {
 	device: React.PropTypes.object,
 	attr: React.PropTypes.string,
-	busy: React.PropTypes.boolean,
-	onclick: React.PropTypes.function
+	busy: React.PropTypes.bool,
+	onclick: React.PropTypes.func
 };

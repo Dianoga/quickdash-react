@@ -49,7 +49,7 @@ export class Dashboard extends Component {
 				{device.hasMotionSensors() ? <MotionWidget devices={ device.getMotionSensors() } /> : null}
 				{device.hasOutdoorWeather() ? <WeatherWidget outdoorWeather={ device.getOutdoorWeather() } /> : null}
 				{device.hasFloors() ? <ClimateWidget floors={ device.getFloors() } /> : null}
-				{power.hasPower() ? <PowerWidget watts={ power.totalWatts() } /> : null}
+				{power.hasPower() ? <PowerWidget watts={ power.totalWatts() } clickable /> : null}
 			</div>
 		);
 	}

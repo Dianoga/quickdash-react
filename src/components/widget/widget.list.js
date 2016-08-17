@@ -1,5 +1,4 @@
 import React, {	Component } from 'react';
-import { Link } from 'react-router';
 import classnames from 'classnames';
 import _ from 'lodash';
 
@@ -13,7 +12,7 @@ export class WidgetList extends Component {
 		attr: React.PropTypes.string,
 		class: React.PropTypes.string,
 		filter: React.PropTypes.string,
-		onclick: React.PropTypes.function
+		onclick: React.PropTypes.func
 	};
 
 	constructor(props) {
@@ -48,7 +47,6 @@ export class WidgetList extends Component {
 
 		return (
 			<div className={ classes }>
-				<Link to="/dashboard" className="item">Back</Link>
 				{deviceList}
 			</div>
 		);

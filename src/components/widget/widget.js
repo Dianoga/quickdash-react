@@ -12,7 +12,7 @@ export class Widget extends Component {
 		listPath: React.PropTypes.string,
 		status: React.PropTypes.element,
 		statusBad: React.PropTypes.string,
-		visual: React.PropTypes.element.isRequired
+		visual: React.PropTypes.element
 	};
 
 	constructor(props) {

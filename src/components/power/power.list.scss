@@ -1,0 +1,23 @@
+.power-list {
+	justify-content: space-between;
+
+	.widget-power {
+		width: auto;
+		height: auto;
+		flex: 1 1 calc(100% / 5);
+		border: 0;
+
+		.content {
+			background: #333;
+		}
+
+		.display {
+			flex-direction: column-reverse;
+
+			.name {
+				border-bottom: 1px solid white;
+				white-space: nowrap;
+			}
+		}
+	}
+}
