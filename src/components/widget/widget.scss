@@ -16,5 +16,9 @@
 
 	margin-bottom: $marginSize;
 
-	transition: 0.5s background-color;
+	transition: 0.5s opacity;
+
+	&.busy {
+		opacity: 0.5;
+	}
 }

@@ -1,5 +1,10 @@
 @import '../../scss/_variables';
 
+$wide-width: 39%;
+$width: 19%;
+
+$small-height: 27vh;
+
 .dashboard {
 	display: flex;
 	flex-wrap: wrap;
@@ -8,32 +13,37 @@
 }
 
 .widget-contact {
-	width: 39%;
+	width: $wide-width;
 }
 
 .widget-climate {
-	width: 19%;
+	width: $width;
 }
 
 .widget-door-control {
-	width: 19%;
+	width: $width;
 }
 
 .widget-motion {
-	width: 39%;
+	width: $wide-width;
+}
+
+.widget.widget-refresh {
+	width: $width;
+	height: $small-height;
 }
 
 .widget.widget-power {
-	width: 19%;
-	height: 27vh;
+	width: $width;
+	height: $small-height;
 }
 
 .widget-switch {
-	width: 39%;
+	width: $wide-width;
 }
 
 .widget-weather {
-	width: 39%;
+	width: $wide-width;
 }
 
 .placeholder.row {

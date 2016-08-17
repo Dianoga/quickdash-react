@@ -8,8 +8,10 @@ export class Widget extends Component {
 	static propTypes = {
 		allGood: React.PropTypes.bool,
 		badDevices: React.PropTypes.array,
+		busy: React.PropTypes.bool,
 		class: React.PropTypes.string.isRequired,
 		listPath: React.PropTypes.string,
+		onclick: React.PropTypes.func,
 		status: React.PropTypes.element,
 		statusBad: React.PropTypes.string,
 		visual: React.PropTypes.element
@@ -25,7 +27,7 @@ export class Widget extends Component {
 
 	buildStatus() {
 		let status = <div className="status">Nothing {_.capitalize(this.props.statusBad)}</div>;
-		if (this.props.badDevices.length > 0) {
+		if (this.props.badDevices && this.props.badDevices.length > 0) {
 			let statusText = `${this.props.badDevices.length} things ${this.props.statusBad}`;
 			if (this.props.badDevices.length === 1) {
 				statusText = this.props.badDevices[0].name;
@@ -53,11 +55,12 @@ export class Widget extends Component {
 			widget: true,
 			[this.props.class]: true,
 			awesome: this.props.allGood,
-			awful: !this.props.allGood
+			awful: !this.props.allGood,
+			busy: this.props.busy
 		});
 
 		return (
-			<div className={ widgetClass } onClick={ this.handleShowList }>
+			<div className={ widgetClass } onClick={ this.props.onclick || this.handleShowList }>
 				{this.props.visual}
 
 				<div className="content">

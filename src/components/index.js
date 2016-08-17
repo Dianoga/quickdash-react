@@ -5,6 +5,7 @@ export * from './doorcontrol';
 export * from './login';
 export * from './motion';
 export * from './power';
+export * from './refresh';
 export * from './switch';
 export * from './weather';
 export * from './widget';

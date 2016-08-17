@@ -10,8 +10,8 @@ export class Device {
 
 	static sendCommand(device: Device, command: string, value?: any) {
 		const data = {
-			device: device.id,
-			type: device.type,
+			device: device ? device.id : null,
+			type: device ? device.type : null,
 			command: command,
 			value: value
 		};

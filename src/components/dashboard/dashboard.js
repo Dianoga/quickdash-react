@@ -7,6 +7,7 @@ import {
 	DoorControlWidget,
 	MotionWidget,
 	PowerWidget,
+	RefreshWidget,
 	SwitchWidget,
 	WeatherWidget
 } from '../';
@@ -50,6 +51,7 @@ export class Dashboard extends Component {
 				{device.hasOutdoorWeather() ? <WeatherWidget outdoorWeather={ device.getOutdoorWeather() } /> : null}
 				{device.hasFloors() ? <ClimateWidget floors={ device.getFloors() } /> : null}
 				{power.hasPower() ? <PowerWidget watts={ power.totalWatts() } clickable /> : null}
+				<RefreshWidget />
 			</div>
 		);
 	}
