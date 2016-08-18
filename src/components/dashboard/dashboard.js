@@ -7,6 +7,7 @@ import {
 	DoorControlWidget,
 	MotionWidget,
 	PowerWidget,
+	LocationWidget,
 	RefreshWidget,
 	SwitchWidget,
 	WeatherWidget
@@ -18,7 +19,11 @@ export class Dashboard extends Component {
 	constructor(props) {
 		super(props);
 
-		this.state = {};
+		this.state = {
+			devices: {},
+			power: {},
+			location: {}
+		};
 	}
 
 	componentDidMount() {
@@ -31,11 +36,17 @@ export class Dashboard extends Component {
 			context: this,
 			state: 'power'
 		});
+
+		this.locationBind = firebase.bindToState('location', {
+			context: this,
+			state: 'location'
+		});
 	}
 
 	componentWillUnmount() {
 		firebase.removeBinding(this.deviceBind);
 		firebase.removeBinding(this.powerBind);
+		firebase.removeBinding(this.locationBind);
 	}
 
 	render() {
@@ -51,6 +62,7 @@ export class Dashboard extends Component {
 				{device.hasOutdoorWeather() ? <WeatherWidget outdoorWeather={ device.getOutdoorWeather() } /> : null}
 				{device.hasFloors() ? <ClimateWidget floors={ device.getFloors() } /> : null}
 				{power.hasPower() ? <PowerWidget watts={ power.totalWatts() } clickable /> : null}
+				<LocationWidget mode={ this.state.location.mode } />
 				<RefreshWidget />
 			</div>
 		);

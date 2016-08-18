@@ -28,6 +28,11 @@ $small-height: 27vh;
 	width: $wide-width;
 }
 
+.widget.widget-location {
+	width: $wide-width;
+	height: $small-height;
+}
+
 .widget.widget-refresh {
 	width: $width;
 	height: $small-height;

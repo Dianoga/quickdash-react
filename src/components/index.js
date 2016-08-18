@@ -4,6 +4,7 @@ export * from './dashboard';
 export * from './doorcontrol';
 export * from './login';
 export * from './motion';
+export * from './location';
 export * from './power';
 export * from './refresh';
 export * from './switch';
