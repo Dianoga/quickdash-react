@@ -12,6 +12,9 @@ export const WeatherCondition = (props) => {
 
 WeatherCondition.propTypes = {
 	name: React.PropTypes.string,
-	status: React.PropTypes.string,
+	status: React.PropTypes.oneOfType([
+		React.PropTypes.string,
+		React.PropTypes.number
+	]),
 	unit: React.PropTypes.string
 };

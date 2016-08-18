@@ -18,7 +18,7 @@ export class RefreshWidget extends Component {
 		const visual = <span className="icon-refresh" />;
 		const refresh = () => {
 			this.setState({ busy: true });
-			Command.sendDeviceCommand(null, 'refresh')
+			Command.sendCommand('refresh')
 				.then(() => {
 					this.setState({ busy: false });
 				});
