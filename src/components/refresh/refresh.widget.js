@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import { Widget } from '../';
-import { Device } from '../../shared';
+import { Command } from '../../shared';
 
 import './refresh.widget.scss';
 
@@ -18,7 +18,7 @@ export class RefreshWidget extends Component {
 		const visual = <span className="icon-refresh" />;
 		const refresh = () => {
 			this.setState({ busy: true });
-			Device.sendCommand(null, 'refresh')
+			Command.sendDeviceCommand(null, 'refresh')
 				.then(() => {
 					this.setState({ busy: false });
 				});

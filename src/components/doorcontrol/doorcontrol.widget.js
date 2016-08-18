@@ -1,7 +1,7 @@
 import React, {	Component } from 'react';
 import classnames from 'classnames';
 
-import { Device } from '../../shared';
+import { Command } from '../../shared';
 
 import './door-control.widget.scss';
 
@@ -24,9 +24,9 @@ export class DoorControlWidget extends Component {
 		this.forceUpdate();
 
 		if (this.props.device.door === 'open') {
-			promise = Device.sendCommand(this.props.device, 'close');
+			promise = Command.sendDeviceCommand(this.props.device, 'close');
 		} else if (this.props.device.door === 'closed') {
-			promise = Device.sendCommand(this.props.device, 'open');
+			promise = Command.sendDeviceCommand(this.props.device, 'open');
 		}
 
 		promise.then(() => {

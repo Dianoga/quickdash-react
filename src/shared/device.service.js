@@ -1,24 +1,8 @@
 import _ from 'lodash';
-import axios from 'axios';
-
-import { settings } from './';
 
 export class Device {
 	constructor(devices) {
 		this.devices = devices;
-	}
-
-	static sendCommand(device: Device, command: string, value?: any) {
-		const data = {
-			device: device ? device.id : null,
-			type: device ? device.type : null,
-			command: command,
-			value: value
-		};
-
-		return axios.get(settings.commandUrl, { params: data })
-			.then(res => console.log(res))
-			.catch(res => console.error(res));
 	}
 
 	hasDevices() {

@@ -1,6 +1,6 @@
 import React, {	Component } from 'react';
 
-import { Device } from '../../shared';
+import { Command } from '../../shared';
 import { WidgetList } from '../';
 
 import './switch.list.scss';
@@ -19,9 +19,9 @@ export class SwitchList extends Component {
 		this.forceUpdate();
 
 		if (device.switch === 'on') {
-			promise = Device.sendCommand(device, 'off');
+			promise = Command.sendDeviceCommand(device, 'off');
 		} else if (device.switch === 'off') {
-			promise = Device.sendCommand(device, 'on');
+			promise = Command.sendDeviceCommand(device, 'on');
 		}
 
 		promise.then(() => {
