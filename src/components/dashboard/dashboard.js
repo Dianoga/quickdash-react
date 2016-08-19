@@ -2,6 +2,7 @@ import React, {	Component } from 'react';
 import { firebase, Device, Power } from '../../shared';
 
 import {
+	AlarmWidget,
 	ClimateWidget,
 	ContactWidget,
 	DoorControlWidget,
@@ -62,7 +63,8 @@ export class Dashboard extends Component {
 				{device.hasOutdoorWeather() ? <WeatherWidget outdoorWeather={ device.getOutdoorWeather() } /> : null}
 				{device.hasFloors() ? <ClimateWidget floors={ device.getFloors() } /> : null}
 				{power.hasPower() ? <PowerWidget watts={ power.totalWatts() } clickable /> : null}
-				<LocationWidget mode={ this.state.location.mode } />
+				{this.state.location.alarm ? <AlarmWidget status={ this.state.location.alarm } /> : null}
+				{this.state.location.mode ? <LocationWidget mode={ this.state.location.mode } /> : null}
 				<RefreshWidget />
 			</div>
 		);

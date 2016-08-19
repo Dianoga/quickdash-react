@@ -1,0 +1,10 @@
+.alarm-list {
+	height: calc(100vh - 2vw);
+	justify-content: center;
+	align-items: center;
+
+	.widget.widget-alarm {
+		margin: 1vw;
+		height: 50vh;
+	}
+}

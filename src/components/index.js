@@ -1,3 +1,4 @@
+export * from './alarm';
 export * from './climate';
 export * from './contact';
 export * from './dashboard';

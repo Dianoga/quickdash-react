@@ -4,7 +4,7 @@ import { Router, Route, browserHistory, IndexRedirect } from 'react-router';
 
 import { auth } from './shared';
 
-import { Dashboard, Login, ContactList, MotionList, PowerList, RoutineList, SwitchList } from './components';
+import { AlarmList, Dashboard, Login, ContactList, MotionList, PowerList, RoutineList, SwitchList } from './components';
 
 import './scss/index.scss';
 
@@ -54,6 +54,7 @@ ReactDOM.render(
 			<Route path="power" component={ PowerList } />
 			<Route path="switch" component={ SwitchList } />
 			<Route path="routine" component={ RoutineList } />
+			<Route path="alarm" component={ AlarmList } />
 		</Route>
 	</Router>,
 	document.getElementById('root')

@@ -12,6 +12,11 @@ $small-height: 27vh;
 	padding: 1%;
 }
 
+.widget.widget-alarm {
+	width: $width;
+	height: $small-height;
+}
+
 .widget-contact {
 	width: $wide-width;
 }
@@ -49,9 +54,4 @@ $small-height: 27vh;
 
 .widget-weather {
 	width: $wide-width;
-}
-
-.placeholder.row {
-	flex: 1 1 auto;
-	width: 100%;
 }
