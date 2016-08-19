@@ -4,7 +4,7 @@ import { Router, Route, browserHistory, IndexRedirect } from 'react-router';
 
 import { auth } from './shared';
 
-import { Dashboard, Login, ContactList, MotionList, PowerList, SwitchList } from './components';
+import { Dashboard, Login, ContactList, MotionList, PowerList, RoutineList, SwitchList } from './components';
 
 import './scss/index.scss';
 
@@ -19,8 +19,6 @@ class App extends Component {
 		this.state = {
 			user: null
 		};
-
-		// this.devices = this.firebase.fetch('devices', { context: this, then: this.updateDevices });
 	}
 
 	render() {
@@ -55,6 +53,7 @@ ReactDOM.render(
 			<Route path="motion" component={ MotionList } />
 			<Route path="power" component={ PowerList } />
 			<Route path="switch" component={ SwitchList } />
+			<Route path="routine" component={ RoutineList } />
 		</Route>
 	</Router>,
 	document.getElementById('root')

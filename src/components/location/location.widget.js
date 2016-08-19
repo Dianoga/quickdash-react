@@ -7,7 +7,7 @@ export const LocationWidget = (props) => {
 	const status = <span className="mode">{props.mode}</span>;
 
 	return (
-		<Widget class="widget-location" status={ status } />
+		<Widget class="widget-location" status={ status } listPath="/routine" />
 	);
 };
 
