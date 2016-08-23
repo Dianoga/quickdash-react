@@ -5,13 +5,13 @@
 	flex-wrap: wrap;
 	font-size: 2.5vw;
 
-	margin: $marginSize;
+	margin: $marginWidth;
 
 	.item {
 		transition: 0.5s background-color, 0.5s border-color, 0.5s opacity;
 
-		margin: 0 $marginSize $marginSize 0;
-		padding: $marginSize/2;
+		margin: 0 $marginWidth $marginWidth 0;
+		padding: $marginWidth/2;
 		border-width: 1px;
 		border-style: solid;
 		border-radius: 3px;

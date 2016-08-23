@@ -35,8 +35,8 @@ html, body {
 	background-color: $gray-light;
 	color: white;
 
-	margin: 0 $marginSize $marginSize 0;
-	padding: $marginSize/2;
+	margin: 0 $marginWidth $marginWidth 0;
+	padding: $marginWidth/2;
 	border: 1px solid;
 	border-radius: 3px;
 }

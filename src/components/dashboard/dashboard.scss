@@ -1,24 +1,30 @@
 @import '../../scss/_variables';
 
-$wide-width: 39%;
-$width: 19%;
+$columns: 5;
+$rows: 3;
 
-$small-height: 27vh;
+$width: (100vw - $marginWidth) / $columns - $marginWidth;
+$width2x: $width * 2 + $marginWidth;
+
+$height: (100vh - $marginHeight) / $rows - $marginHeight;
 
 .dashboard {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-between;
-	padding: 1%;
+	padding: $marginHeight/2 $marginWidth/2;
+
+	.widget {
+		margin: $marginHeight/2 $marginWidth/2;
+		height: $height;
+	}
 }
 
 .widget.widget-alarm {
 	width: $width;
-	height: $small-height;
 }
 
 .widget-contact {
-	width: $wide-width;
+	width: $width2x;
 }
 
 .widget-climate {
@@ -30,28 +36,25 @@ $small-height: 27vh;
 }
 
 .widget-motion {
-	width: $wide-width;
+	width: $width2x;
 }
 
 .widget.widget-location {
-	width: $wide-width;
-	height: $small-height;
+	width: $width2x;
 }
 
 .widget.widget-refresh {
 	width: $width;
-	height: $small-height;
 }
 
 .widget.widget-power {
 	width: $width;
-	height: $small-height;
 }
 
 .widget-switch {
-	width: $wide-width;
+	width: $width2x;
 }
 
 .widget-weather {
-	width: $wide-width;
+	width: $width2x;
 }
