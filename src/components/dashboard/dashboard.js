@@ -1,5 +1,5 @@
 import React, {	Component } from 'react';
-import { firebase, Device, Power } from '../../shared';
+import { firebase, Device, Floors, Power } from '../../shared';
 
 import {
 	AlarmWidget,
@@ -22,6 +22,7 @@ export class Dashboard extends Component {
 
 		this.state = {
 			devices: {},
+			floors: [],
 			power: {},
 			location: {}
 		};
@@ -42,16 +43,23 @@ export class Dashboard extends Component {
 			context: this,
 			state: 'location'
 		});
+
+		this.floorBind = firebase.bindToState('floors', {
+			context: this,
+			state: 'floors'
+		});
 	}
 
 	componentWillUnmount() {
 		firebase.removeBinding(this.deviceBind);
 		firebase.removeBinding(this.powerBind);
 		firebase.removeBinding(this.locationBind);
+		firebase.removeBinding(this.floorBind);
 	}
 
 	render() {
 		const device = new Device(this.state.devices);
+		const floors = new Floors(this.state.floors, device);
 		const power = new Power(this.state.power);
 
 		return (
@@ -61,7 +69,7 @@ export class Dashboard extends Component {
 				{device.hasDoorControl() ? <DoorControlWidget device={ device.getDoorControl() } /> : null}
 				{device.hasMotionSensors() ? <MotionWidget devices={ device.getMotionSensors() } /> : null}
 				{device.hasOutdoorWeather() ? <WeatherWidget outdoorWeather={ device.getOutdoorWeather() } /> : null}
-				{device.hasFloors() ? <ClimateWidget floors={ device.getFloors() } /> : null}
+				{floors.hasFloors() ? <ClimateWidget floors={ floors } /> : null}
 				{power.hasPower() ? <PowerWidget watts={ power.totalWatts() } clickable /> : null}
 				{this.state.location.alarm ? <AlarmWidget status={ this.state.location.alarm } /> : null}
 				{this.state.location.mode ? <LocationWidget mode={ this.state.location.mode } /> : null}

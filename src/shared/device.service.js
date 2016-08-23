@@ -5,6 +5,14 @@ export class Device {
 		this.devices = devices;
 	}
 
+	getDevice(id) {
+		return _.find(this.devices, { id: id });
+	}
+
+	getDevices(ids) {
+		return _.filter(this.devices, val => !!_.find(val.id, ids));
+	}
+
 	hasDevices() {
 		return this.devices.length > 0;
 	}
@@ -31,14 +39,6 @@ export class Device {
 
 	getMotionSensors() {
 		return _.filter(this.devices, 'motion');
-	}
-
-	hasFloors() {
-		return !!_.find(this.devices, { type: 'floor' });
-	}
-
-	getFloors() {
-		return _.filter(this.devices, { type: 'floor' });
 	}
 
 	hasOutdoorWeather() {

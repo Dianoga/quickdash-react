@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Floor } from '../../shared';
+
 export const ClimateFloor = (props) => {
 	return (
 		<div className="floor">
@@ -10,8 +12,5 @@ export const ClimateFloor = (props) => {
 };
 
 ClimateFloor.propTypes = {
-	floor: React.PropTypes.shape({
-		temperature: React.PropTypes.number,
-		humidity: React.PropTypes.number
-	}).isRequired
+	floor: React.PropTypes.instanceOf(Floor).isRequired
 };
