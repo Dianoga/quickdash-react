@@ -1,6 +1,6 @@
 {
   "name": "quickdash-react",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "private": true,
   "devDependencies": {
     "autoprefixer": "6.3.7",
