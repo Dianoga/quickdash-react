@@ -1,11 +1,10 @@
 import React, {	Component } from 'react';
+import { browserHistory } from 'react-router';
 import { firebase } from '../../shared';
 
-export class Login extends Component {
-	static propTypes = {
-		Router: React.PropTypes.object.isRequired
-	};
+import './login.scss';
 
+export class Login extends Component {
 	constructor(props, context) {
 		super(props, context);
 
@@ -16,13 +15,15 @@ export class Login extends Component {
 
 	handleLogin() {
 		firebase.authWithOAuthPopup('google', () => {
-			this.context.router.push('/dashboard');
+			browserHistory.push('/dashboard');
 		});
 	}
 
 	render() {
 		return (
-			<p onClick={ this.handleLogin }>Firebase Login</p>
+			<div className="login-container">
+				<a onClick={ this.handleLogin }>Firebase Login</a>
+			</div>
 		);
 	}
 }
