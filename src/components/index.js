@@ -1,4 +1,5 @@
 export * from './alarm';
+export * from './battery';
 export * from './climate';
 export * from './contact';
 export * from './dashboard';

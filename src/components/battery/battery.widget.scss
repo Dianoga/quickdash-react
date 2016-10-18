@@ -1,0 +1,59 @@
+@import '../../scss/_variables';
+
+.window-frame {
+	flex: 1 1 percentage(1/3);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.content {
+	flex: 2 1 percentage(2/3);
+	display: flex;
+	justify-content: center;
+
+	.status {
+		display: flex;
+		font-size: 2.5vw;
+		justify-content: center;
+	}
+
+	.details {
+		display: flex;
+		font-size: 2vw;
+	}
+}
+
+.window {
+	position: relative;
+	height: 20vh;
+	width: 15vh;
+	border-width: 1vh;
+	border-style: solid;
+	border-color: #d8d8d8 #eeeeee;
+
+	.pane {
+		position: relative;
+		background: rgba(255, 255, 255, .3);
+		border: 0.75vh solid #743;
+		height: 50%;
+		top: 0;
+		transition: top 1s;
+	}
+}
+
+.awesome {
+	.content .status {
+		font-size: 2.5vw;
+	}
+}
+
+.awful {
+	.window {
+		background: $warn-color;
+
+		.pane.bottom {
+			top: -45%;
+		}
+	}
+}

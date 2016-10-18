@@ -12,7 +12,8 @@ export const WidgetListItem = (props) => {
 
 	return (
 		<div className={ classes } onClick={ clickHandler }>
-			{props.device.name}
+			<span className="wli-name">{props.device.name}</span>
+			{props.showAttr ? <span className="wli-attr">{props.device[props.attr]}</span> : null}
 		</div>
 	);
 };
@@ -21,5 +22,6 @@ WidgetListItem.propTypes = {
 	device: React.PropTypes.object,
 	attr: React.PropTypes.string,
 	busy: React.PropTypes.bool,
-	onclick: React.PropTypes.func
+	onclick: React.PropTypes.func,
+	showAttr: React.PropTypes.bool
 };

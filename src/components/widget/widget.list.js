@@ -12,7 +12,8 @@ export class WidgetList extends Component {
 		attr: React.PropTypes.string,
 		class: React.PropTypes.string,
 		filter: React.PropTypes.string,
-		onclick: React.PropTypes.func
+		onclick: React.PropTypes.func,
+		showAttr: React.PropTypes.bool
 	};
 
 	constructor(props) {
@@ -34,10 +35,15 @@ export class WidgetList extends Component {
 
 	render() {
 		const device = new Device(this.state.devices);
-		const devices = _.sortBy(device[this.props.filter](), 'name');
+		const devices = _.sortBy(device[this.props.filter](), this.props.attr);
 
 		const deviceList = devices.map(val => {
-			return <WidgetListItem key={ val.id } device={ val } attr={ this.props.attr } onclick={ this.props.onclick } busy={ val.busy } />;
+			return (<WidgetListItem key={ val.id }
+				device={ val }
+				attr={ this.props.attr }
+				showAttr={ this.props.showAttr }
+				onclick={ this.props.onclick }
+				busy={ val.busy } />);
 		});
 
 		const classes = classnames({

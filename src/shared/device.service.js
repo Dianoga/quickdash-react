@@ -33,6 +33,14 @@ export class Device {
 		return _.filter(this.devices, 'switch');
 	}
 
+	hasBatteries() {
+		return !!_.find(this.devices, 'battery');
+	}
+
+	getBatteries() {
+		return _.filter(this.devices, 'battery');
+	}
+
 	hasMotionSensors() {
 		return !!_.find(this.devices, 'motion');
 	}
