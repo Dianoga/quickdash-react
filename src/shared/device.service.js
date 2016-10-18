@@ -42,11 +42,15 @@ export class Device {
 	}
 
 	hasOutdoorWeather() {
-		return !!_.find(this.devices, { type: 'outdoorWeather' });
+		return !!_.find(this.devices, val => {
+			return _.indexOf(val.type, 'outdoorWeather') !== -1;
+		});
 	}
 
 	getOutdoorWeather() {
-		return _.find(this.devices, { type: 'outdoorWeather' });
+		return _.find(this.devices, val => {
+			return _.indexOf(val.type, 'outdoorWeather') !== -1;
+		});
 	}
 
 	hasDoorControl() {
