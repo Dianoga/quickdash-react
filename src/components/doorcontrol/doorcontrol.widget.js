@@ -24,9 +24,9 @@ export class DoorControlWidget extends Component {
 		this.forceUpdate();
 
 		if (this.props.device.door === 'open') {
-			promise = Command.sendDeviceCommand(this.props.device, 'close');
+			promise = Command.sendDeviceCommand(this.props.device, 'door', 'close');
 		} else if (this.props.device.door === 'closed') {
-			promise = Command.sendDeviceCommand(this.props.device, 'open');
+			promise = Command.sendDeviceCommand(this.props.device, 'door', 'open');
 		}
 
 		promise.then(() => {

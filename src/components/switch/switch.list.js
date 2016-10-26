@@ -19,9 +19,9 @@ export class SwitchList extends Component {
 		this.forceUpdate();
 
 		if (device.switch === 'on') {
-			promise = Command.sendDeviceCommand(device, 'off');
+			promise = Command.sendDeviceCommand(device, 'switch', 'off');
 		} else if (device.switch === 'off') {
-			promise = Command.sendDeviceCommand(device, 'on');
+			promise = Command.sendDeviceCommand(device, 'switch', 'on');
 		}
 
 		promise.then(() => {

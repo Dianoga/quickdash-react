@@ -10,10 +10,10 @@ export class Command {
 			.catch(res => console.error(res));
 	}
 
-	static sendDeviceCommand(device, command, value) {
+	static sendDeviceCommand(device, type, command, value) {
 		const params = {
 			device: device ? device.id : null,
-			type: device ? device.type : null,
+			type: type,
 			value: value
 		};
 
