@@ -27,15 +27,19 @@ export class PowerList extends Component {
 
 	render() {
 		const power = new Power(this.state.power);
-		const normals = power.group('normals');
+		const meters = Object.values(power.power)
+			.filter(val => !val.main && val.id !== '__OTHER__')
+			.sort((a, b) => {
+				return a.label < b.label ? -1 : 1;
+			});
 
 		const classes = classnames({
 			'widget-list': true,
 			'power-list': true
 		});
 
-		const items = _.map(normals, val => {
-			return <PowerWidget key={ val.id } watts={ val.watts } name={ val.name } />;
+		const items = _.map(meters, val => {
+			return <PowerWidget key={ val.id } watts={ val.w } name={ val.label } />;
 		});
 
 		items.push(<PowerWidget key="other" watts={ power.otherWatts() } name="Other" />);

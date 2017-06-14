@@ -3,7 +3,7 @@
     "rules": {
         "id-length": [
             "error", {
-                "exceptions": ["_"]
+                "exceptions": ["_", "a", "b"]
             }
         ],
         "no-magic-numbers": [

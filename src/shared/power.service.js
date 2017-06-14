@@ -1,27 +1,19 @@
-import _ from 'lodash';
-
 export class Power {
 	constructor(power) {
-		this.power = power;
+		this.power = power || {};
 	}
 
 	hasPower() {
-		return _.size(this.power) > 0;
+		return Object.values(this.power).length > 0;
 	}
 
-	totalWatts(name = 'grid') {
-		return _.reduce(this.group(name), (total, val) => {
-			return total + val.watts;
+	totalWatts() {
+		return Object.values(this.power).reduce((total, val) => {
+			return val.main ? total + val.w : total;
 		}, 0);
 	}
 
 	otherWatts() {
-		return this.totalWatts() - this.totalWatts('normals');
-	}
-
-	group(name) {
-		return _.sortBy(_.filter(this.power, (val) => {
-			return val.groups.indexOf(name) > -1;
-		}), 'name');
+		return this.power.__OTHER__ ? this.power.__OTHER__.w : 'Unknown';
 	}
 }
